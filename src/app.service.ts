@@ -3,6 +3,9 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getResponse(input: string): string {
+    if (!input) {
+      return 'What a weird message';
+    }
     const lowercaseInput = input.toLowerCase();
     if (lowercaseInput.includes('?')) {
       return lowercaseInput.length > 10 ? 'Nah...' : 'Sure!';
