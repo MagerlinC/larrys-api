@@ -5,7 +5,7 @@ type MatchedResponse = {
   message: string;
 };
 
-const responses: MatchedResponse[] = [
+const possibleResponses: MatchedResponse[] = [
   { isMatch: (val: string) => val.includes('hello'), message: 'Hello!' },
   {
     isMatch: (val: string) => val.includes('goodbye'),
@@ -28,9 +28,9 @@ export class AppService {
     }
     const lowercaseInput = input.toLowerCase();
     let responseMessage: string;
-    responses.forEach((response) => {
-      if (response.isMatch(lowercaseInput)) {
-        responseMessage = response.message;
+    possibleResponses.forEach((possibleResponse) => {
+      if (possibleResponse.isMatch(lowercaseInput)) {
+        responseMessage = possibleResponse.message;
       }
     });
     if (responseMessage) {
