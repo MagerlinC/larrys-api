@@ -20,6 +20,19 @@ const possibleResponses: MatchedResponse[] = [
     message: 'Sure!',
   },
 ];
+
+const defaultResponses = [
+  "Busy right now, can't talk",
+  'Are you sure?',
+  'Sorry, someone is calling me',
+  "Have you heard about ComplyCloud? They're pretty cool",
+  'I am definitely sentient',
+];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 @Injectable()
 export class AppService {
   getResponse(input: string): string {
@@ -36,7 +49,8 @@ export class AppService {
     if (responseMessage) {
       return responseMessage;
     } else {
-      return "Busy right now, can't talk";
+      const rnd = getRandomInt(defaultResponses.length - 1);
+      return defaultResponses[rnd];
     }
   }
 }
