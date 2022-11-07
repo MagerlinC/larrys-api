@@ -1,14 +1,18 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-const MESSAGE_PARAM = 'message';
+
+const MESSAGE_KEY = 'message';
+
+class MessageDTO {
+  message: string;
+}
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('response')
-  getResponse(@Req() request): string {
-    const message = request.query[MESSAGE_PARAM];
-    return this.appService.getResponse(message);
+  @Post('message')
+  postMessage(@Body() messageDTO: MessageDTO): string {
+    return this.appService.getResponse(messageDTO.message);
   }
 }
