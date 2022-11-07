@@ -49,7 +49,7 @@ export class AppService {
     if (responseMessage) {
       return responseMessage;
     } else {
-      const rnd = getRandomInt(defaultResponses.length - 1);
+      const rnd = getRandomInt(defaultResponses.length);
       return defaultResponses[rnd];
     }
   }
