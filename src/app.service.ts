@@ -12,11 +12,11 @@ const possibleResponses: MatchedResponse[] = [
     message: 'Goodbye!',
   },
   {
-    isMatch: (val: string) => val.includes('?') && val.length > 10,
+    isMatch: (val: string) => val.includes('?') && val.length > 15,
     message: 'Nah...',
   },
   {
-    isMatch: (val: string) => val.includes('?') && val.length <= 10,
+    isMatch: (val: string) => val.includes('?') && val.length <= 15,
     message: 'Sure!',
   },
 ];
