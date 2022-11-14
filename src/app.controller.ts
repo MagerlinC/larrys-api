@@ -5,6 +5,10 @@ class MessageDTO {
   message: string;
 }
 
+class Response {
+  message: string;
+}
+
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -15,7 +19,8 @@ export class AppController {
   }
 
   @Post('message')
-  postMessage(@Body() messageDTO: MessageDTO): string {
-    return this.appService.getResponse(messageDTO.message);
+  postMessage(@Body() messageDTO: MessageDTO): Response {
+    const message = this.appService.getResponse(messageDTO.message);
+    return { message: message };
   }
 }
