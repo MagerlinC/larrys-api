@@ -1,8 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
-const MESSAGE_KEY = 'message';
-
 class MessageDTO {
   message: string;
 }
